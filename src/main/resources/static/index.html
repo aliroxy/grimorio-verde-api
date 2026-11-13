@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grimório Verde</title>
+    <meta name="description" content="Grimório Verde: ervas, usos, receitas, rituais e informações botânicas.">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="topo">
+    <div class="container topo__conteudo">
+        <div>
+            <h1 class="topo__titulo">🌿 Grimório Verde</h1>
+            <p class="topo__subtitulo">Ervas, usos, receitas, rituais e informações botânicas</p>
+        </div>
+        <nav class="topo__links" aria-label="Documentação da API">
+            <a href="/swagger-ui.html">Swagger</a>
+            <a href="/api/v1/ervas">API (JSON)</a>
+        </nav>
+    </div>
+</header>
+
+<div class="aviso" role="note">
+    <div class="container">
+        <strong>Aviso:</strong> as informações desta página são educativas e não substituem orientação médica,
+        nutricional ou de outro profissional habilitado.
+    </div>
+</div>
+
+<main class="container">
+    <form class="filtros" id="filtros" role="search">
+        <label class="campo">
+            <span>Buscar pelo nome</span>
+            <input type="search" id="busca" placeholder="Ex.: camomila" autocomplete="off">
+        </label>
+        <label class="campo">
+            <span>Categoria</span>
+            <select id="categoria">
+                <option value="">Todas</option>
+                <option value="MEDICINAL">Medicinal</option>
+                <option value="CULINARIA">Culinária</option>
+                <option value="ESPIRITUAL">Espiritual</option>
+                <option value="AROMATICA">Aromática</option>
+                <option value="ORNAMENTAL">Ornamental</option>
+            </select>
+        </label>
+        <button type="button" class="botao botao--secundario" id="limpar">Limpar</button>
+    </form>
+
+    <p class="resumo" id="resumo" aria-live="polite"></p>
+
+    <section id="lista" class="grade" aria-label="Lista de ervas"></section>
+
+    <nav class="paginacao" id="paginacao" aria-label="Paginação">
+        <button type="button" class="botao botao--secundario" id="anterior">← Anterior</button>
+        <span id="paginaAtual"></span>
+        <button type="button" class="botao botao--secundario" id="proxima">Próxima →</button>
+    </nav>
+</main>
+
+<footer class="rodape">
+    <div class="container">Grimório Verde · Projeto de API com Spring Boot</div>
+</footer>
+
+<dialog id="detalhes" class="detalhes" aria-labelledby="detalhesTitulo">
+    <div class="detalhes__cabecalho">
+        <div>
+            <h2 id="detalhesTitulo"></h2>
+            <p class="detalhes__cientifico" id="detalhesCientifico"></p>
+        </div>
+        <button type="button" class="detalhes__fechar" id="fechar" aria-label="Fechar">×</button>
+    </div>
+    <div class="detalhes__corpo" id="detalhesCorpo"></div>
+</dialog>
+
+<script src="/js/app.js"></script>
+</body>
+</html>
